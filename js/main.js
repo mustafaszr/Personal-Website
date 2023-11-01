@@ -30,3 +30,18 @@
     }
 })(jQuery);
 
+const contactForm=document.getElementById('contact-form')
+
+function clear(){
+    document.forms[0].reset();
+}
+const sendEmail=(e)=>{
+e.preventDefault()
+emailjs.sendForm('service_pivyfcy','template_ykbqzph','#contact-form','RA9N77ql3SYThXRnT')
+.then( ()=>{
+    clear();
+    alert("Mesaj Gönderildi");
+} ) 
+}
+contactForm.addEventListener('submit',sendEmail)
+
